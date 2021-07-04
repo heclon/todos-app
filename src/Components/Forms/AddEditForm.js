@@ -1,16 +1,33 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import uniqid from 'uniqid';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 class AddEditForm extends React.Component {
   state = {
     id: 0,
     taskName: '',
-    priority: ''
+    priority: '',
+    priorityValue: 1
   }
 
+  
   onChange = e => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  getPriority = priorityValue => {
+    if(priorityValue === 1){
+      return 'High'
+    }
+    if(priorityValue === 2){
+      return 'Medium'
+    }
+    if(priorityValue === 3){
+      return 'Low'
+    }
   }
 
   submitFormAdd = e => {
@@ -18,12 +35,14 @@ class AddEditForm extends React.Component {
     try{
       const id = uniqid.process()
       const taskName = this.state.taskName
-      const priority = this.state.priority
+      const priorityValue = this.state.priorityValue
+      const priority = this.getPriority(priorityValue)
       
       const taskTodo = {
         id: id,
         taskName: taskName, 
-        priority: priority
+        priority: priority,
+        priorityValue: priorityValue
       }
       this.props.addItemToState(taskTodo)
       this.props.toggle()
@@ -38,12 +57,14 @@ class AddEditForm extends React.Component {
     try{
       const id = this.state.id
       const taskName = this.state.taskName
-      const priority = this.state.priority
-      
+      const priorityValue = this.state.priorityValue
+      const priority = this.getPriority(priorityValue)
+
       const taskTodo = {
         id: id,
         taskName: taskName, 
-        priority: priority
+        priority: priority,
+        priorityValue: priorityValue
       }
       this.props.updateState(taskTodo)
       this.props.toggle()
@@ -68,8 +89,23 @@ class AddEditForm extends React.Component {
           <Input type="text" name="taskName" id="taskName" onChange={this.onChange} value={this.state.taskName === null ? '' : this.state.taskName} />
         </FormGroup>
         <FormGroup>
+        
+          <Label></Label>
+          <Input type="text" hidden name="priority" id="priority" onChange={this.onChange} value={this.state.priority === null ? '' : this.state.priority}  />
+          <FormControl>
           <Label for="priority">Priority</Label>
-          <Input type="text" name="priority" id="priority" onChange={this.onChange} value={this.state.priority === null ? '' : this.state.priority}  />
+            <Select
+              labelId="priorityValue-select-label"
+              id="priorityValue"
+              name="priorityValue"
+              value={this.state.priorityValue} 
+              onChange={this.onChange} 
+            >
+              <MenuItem value={1}>High</MenuItem>
+              <MenuItem value={2}>Medium</MenuItem>
+              <MenuItem value={3}>Low</MenuItem>
+            </Select>
+          </FormControl>
         </FormGroup>
         <Button>Submit</Button>
       </Form>
