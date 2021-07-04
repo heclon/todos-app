@@ -2,13 +2,67 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import ModalForm from '../Modals/Modal'
 
+const SORTERS = {
+  NUMBER_ASCENDING: mapper => (a, b) => mapper(a) - mapper(b),
+  NUMBER_DESCENDING: mapper => (a, b) => mapper(b) - mapper(a),
+  STRING_ASCENDING: mapper => (a, b) => mapper(a).localeCompare(mapper(b)),
+  STRING_DESCENDING: mapper => (a, b) => mapper(b).localeCompare(mapper(a)),
+};
+
+const getSorter = (field, direction) => {
+  const mapper = x => x[field];
+  let sorter = SORTERS.STRING_ASCENDING(mapper);
+
+  if (field === 'priority') {
+    sorter = direction === 'asc' ?
+      SORTERS.NUMBER_ASCENDING(mapper) : SORTERS.NUMBER_DESCENDING(mapper);
+  } else {
+    sorter = direction === 'asc' ?
+      SORTERS.STRING_ASCENDING(mapper) : SORTERS.STRING_DESCENDING(mapper);
+  }
+
+  return sorter;
+};
 class DataTable extends Component {
+
+  state = {
+    sortOrder: 'INIT',
+    items: this.props.items
+  }
 
   deleteItem = id => {
     let confirmDelete = window.confirm('Sure you wish to delete this To-do?')
     if(confirmDelete){
         this.props.deleteItemFromState(id)
     }
+  }
+
+  sortByName = () => {
+
+    console.log(this.state.sortOrder)
+    let sorter = ''
+    if (this.state.sortOrder === 'asc'){
+      this.setState({
+        sortOrder: 'desc',
+      })
+       sorter = getSorter('name','desc')
+    }
+    else if (this.state.sortOrder === 'desc'){
+      this.setState({
+        sortOrder: 'asc',
+      })
+       sorter = getSorter('name','asc')
+    }
+
+    let sortedItems = Array.from(this.state.items);
+    sortedItems = sortedItems.sort(sorter);
+    console.log(sortedItems)
+    return sortedItems;
+  }
+
+  sortByPriority = () => {
+    const sorter = getSorter('priority')
+
   }
 
   render() {
@@ -35,8 +89,8 @@ class DataTable extends Component {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Task name</th>
-            <th>Priority</th>
+            <th style={{cursor:'pointer'}} onClick={() => this.sortByName()}>Task to-do name</th>
+            <th style={{cursor:'pointer'}} onClick={() => this.sortByPriority()}>Priority</th>
             <th>Actions</th>
           </tr>
         </thead>

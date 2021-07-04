@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Pagination } from 'reactstrap'
+import { Container, Row, Col } from 'reactstrap'
 import ModalForm from './Components/Modals/Modal'
 import DataTable from './Components/Tables/DataTable'
-
-
 class App extends Component {
   state = {
     items: []
   }
 
   getItems(){
-    fetch('http://localhost:3000/todos')
-      .then(response => response.json())
-      .then(items => this.setState({items}))
-      .catch(err => console.log(err))
+    this.setState({items: []})
   }
 
   addItemToState = (item) => {
@@ -49,7 +44,7 @@ class App extends Component {
             <h1 style={{margin: "20px 0"}}>My To-do's</h1>
           </Col>
         </Row>
-        <Row style={{"margin-bottom": "3%"}}>
+        <Row style={{"marginBottom": "3%"}}>
           <Col>
             <ModalForm buttonLabel="Add To-do task" addItemToState={this.addItemToState}/>
           </Col>
@@ -61,11 +56,7 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-            <Pagination
-              size="sm"
-              fetchTotalOfItems={this.state.items}
-            />
-        
+
           </Col>
         </Row>
       </Container>
