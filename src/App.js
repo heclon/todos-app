@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row, Col, Pagination } from 'reactstrap'
 import ModalForm from './Components/Modals/Modal'
 import DataTable from './Components/Tables/DataTable'
+
 
 class App extends Component {
   state = {
@@ -48,6 +49,11 @@ class App extends Component {
             <h1 style={{margin: "20px 0"}}>My To-do's</h1>
           </Col>
         </Row>
+        <Row style={{"margin-bottom": "3%"}}>
+          <Col>
+            <ModalForm buttonLabel="Add To-do task" addItemToState={this.addItemToState}/>
+          </Col>
+        </Row>
         <Row>
           <Col>
             <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} />
@@ -55,8 +61,11 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-            <ModalForm buttonLabel="Add To-do task" addItemToState={this.addItemToState}/>
-            <Col></Col>
+            <Pagination
+              size="sm"
+              fetchTotalOfItems={this.state.items}
+            />
+        
           </Col>
         </Row>
       </Container>

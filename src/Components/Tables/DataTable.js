@@ -31,12 +31,13 @@ class DataTable extends Component {
       })
 
     return (
-      <Table responsive hover>
+      <Table dark responsive hover>
         <thead>
           <tr>
             <th>ID</th>
             <th>Task name</th>
             <th>Priority</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

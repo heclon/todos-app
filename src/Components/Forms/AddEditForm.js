@@ -30,48 +30,66 @@ class AddEditForm extends React.Component {
     }
   }
 
+  validateForm = () => {
+    const taskName = this.state.taskName
+    const priorityValue = this.state.priorityValue
+    if (taskName && priorityValue)
+      return true;
+    else return false;
+    
+  }
+
   submitFormAdd = e => {
     e.preventDefault()
-    try{
-      const id = uniqid.process()
-      const taskName = this.state.taskName
-      const priorityValue = this.state.priorityValue
-      const priority = this.getPriority(priorityValue)
-      
-      const taskTodo = {
-        id: id,
-        taskName: taskName, 
-        priority: priority,
-        priorityValue: priorityValue
+    const validForm = this.validateForm()
+    if(validForm){
+      try {
+        const id = uniqid.process()
+        const taskName = this.state.taskName
+        const priorityValue = this.state.priorityValue
+        const priority = this.getPriority(priorityValue)
+        
+        const taskTodo = {
+          id: id,
+          taskName: taskName, 
+          priority: priority,
+          priorityValue: priorityValue
+        }
+        this.props.addItemToState(taskTodo)
+        this.props.toggle()
+      } 
+      catch(err) {
+        console.log(err)
       }
-      this.props.addItemToState(taskTodo)
-      this.props.toggle()
-    } 
-    catch(err) {
-      console.log(err)
     }
+    else return;
   }
+
 
   submitFormEdit = e => {
     e.preventDefault()
-    try{
-      const id = this.state.id
-      const taskName = this.state.taskName
-      const priorityValue = this.state.priorityValue
-      const priority = this.getPriority(priorityValue)
-
-      const taskTodo = {
-        id: id,
-        taskName: taskName, 
-        priority: priority,
-        priorityValue: priorityValue
+    const validForm = this.validateForm()
+    if(validForm) {
+      try {
+        const id = this.state.id
+        const taskName = this.state.taskName
+        const priorityValue = this.state.priorityValue
+        const priority = this.getPriority(priorityValue)
+  
+        const taskTodo = {
+          id: id,
+          taskName: taskName, 
+          priority: priority,
+          priorityValue: priorityValue
+        }
+        this.props.updateState(taskTodo)
+        this.props.toggle()
+      } 
+      catch(err) {
+        console.log(err)
       }
-      this.props.updateState(taskTodo)
-      this.props.toggle()
-    } 
-    catch(err) {
-      console.log(err)
     }
+    else return;
   }
 
   componentDidMount(){
