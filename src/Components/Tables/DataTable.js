@@ -45,7 +45,35 @@ class DataTable extends Component {
     console.log(sortedItems);
   };
 
-  sortByPriority = () => {};
+  sortByPriority = () => {
+    console.log(this.state.sortOrder);
+    let sortedItems = [];
+    if (this.state.sortOrder !== "desc") {
+      this.setState({
+        sortOrder: "desc",
+      });
+
+      sortedItems = this.props.items.sort(function (x, y) {
+        let a = x.priorityValue,
+          b = y.priorityValue;
+        return a === b ? 0 : a > b ? 1 : -1;
+      });
+    } else if (this.state.sortOrder === "desc") {
+      this.setState({
+        sortOrder: "asc",
+      });
+
+      sortedItems = this.props.items.sort(function (x, y) {
+        let a = x.priorityValue,
+          b = y.priorityValue;
+        return a === b ? 0 : a > b ? -1 : 1;
+      });
+    }
+    this.setState({
+      items: sortedItems,
+    });
+    console.log(sortedItems);
+  };
 
   render() {
     const items = this.props.items.map((item) => {
