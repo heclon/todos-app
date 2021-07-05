@@ -132,7 +132,7 @@ class AddEditForm extends React.Component {
             </Select>
           </FormControl>
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Save</Button>
       </Form>
     );
   }

@@ -16,7 +16,7 @@ class DataTable extends Component {
   // };
 
   sortByName = () => {
-    console.log(this.state.sortOrder);
+    // console.log(this.state.sortOrder);
     let sortedItems = [];
     if (this.state.sortOrder !== "desc") {
       this.setState({
@@ -42,11 +42,11 @@ class DataTable extends Component {
     this.setState({
       items: sortedItems,
     });
-    console.log(sortedItems);
+    // console.log(sortedItems);
   };
 
   sortByPriority = () => {
-    console.log(this.state.sortOrder);
+    // console.log(this.state.sortOrder);
     let sortedItems = [];
     if (this.state.sortOrder !== "desc") {
       this.setState({
@@ -72,7 +72,7 @@ class DataTable extends Component {
     this.setState({
       items: sortedItems,
     });
-    console.log(sortedItems);
+    // console.log(sortedItems);
   };
 
   render() {

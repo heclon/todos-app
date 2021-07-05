@@ -23,8 +23,7 @@ class ModalConfirmDelete extends Component {
   };
 
   deleteItem = (id) => {
-    console.log("will delete: ", id);
-    console.log(this.props);
+    // console.log("will delete: ", id);
     this.props.deleteItemFromState(id);
     this.toggle();
   };
