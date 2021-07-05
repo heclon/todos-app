@@ -8,4 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-table th, table td { white-space: nowrap; }
+table th,
+table td {
+  white-space: nowrap;
+}
