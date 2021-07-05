@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import AddEditForm from "../Forms/AddEditForm";
 
-class ModalForm extends Component {
+class ModalAddEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,4 +77,4 @@ class ModalForm extends Component {
   }
 }
 
-export default ModalForm;
+export default ModalAddEdit;

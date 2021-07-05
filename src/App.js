@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
-import ModalForm from "./Components/Modals/Modal";
+import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import DataTable from "./Components/Tables/DataTable";
 
 function countByPriority(items) {
@@ -87,7 +87,7 @@ class App extends Component {
         </Row>
         <Row style={{ marginBottom: "3%" }}>
           <Col>
-            <ModalForm
+            <ModalAddEdit
               buttonLabel="Add To-do task"
               addItemToState={this.addItemToState}
             />

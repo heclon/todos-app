@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
-import ModalForm from "../Modals/Modal";
+import ModalAddEdit from "../Modals/ModalAddEdit";
 
 class DataTable extends Component {
   state = {
@@ -84,7 +84,7 @@ class DataTable extends Component {
           <td>{item.priority}</td>
           <td>
             <div style={{ width: "110px" }}>
-              <ModalForm
+              <ModalAddEdit
                 buttonLabel="Edit To-do"
                 item={item}
                 updateState={this.props.updateState}
