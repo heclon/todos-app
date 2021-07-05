@@ -2,27 +2,6 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 import ModalForm from '../Modals/Modal'
 
-const SORTERS = {
-  NUMBER_ASCENDING: mapper => (a, b) => mapper(a) - mapper(b),
-  NUMBER_DESCENDING: mapper => (a, b) => mapper(b) - mapper(a),
-  STRING_ASCENDING: mapper => (a, b) => mapper(a).localeCompare(mapper(b)),
-  STRING_DESCENDING: mapper => (a, b) => mapper(b).localeCompare(mapper(a)),
-};
-
-const getSorter = (field, direction) => {
-  const mapper = x => x[field];
-  let sorter = SORTERS.STRING_ASCENDING(mapper);
-
-  if (field === 'priority') {
-    sorter = direction === 'asc' ?
-      SORTERS.NUMBER_ASCENDING(mapper) : SORTERS.NUMBER_DESCENDING(mapper);
-  } else {
-    sorter = direction === 'asc' ?
-      SORTERS.STRING_ASCENDING(mapper) : SORTERS.STRING_DESCENDING(mapper);
-  }
-
-  return sorter;
-};
 class DataTable extends Component {
 
   state = {
@@ -40,28 +19,37 @@ class DataTable extends Component {
   sortByName = () => {
 
     console.log(this.state.sortOrder)
-    let sorter = ''
-    if (this.state.sortOrder === 'asc'){
+    let sortedItems = []
+    if (this.state.sortOrder !== 'desc'){
       this.setState({
         sortOrder: 'desc',
       })
-       sorter = getSorter('name','desc')
+
+      sortedItems = this.props.items.sort(function (x, y) {
+        let a = x.taskName.toUpperCase(),
+            b = y.taskName.toUpperCase();
+        return a === b ? 0 : a > b ? 1 : -1;
+    });
+
     }
     else if (this.state.sortOrder === 'desc'){
       this.setState({
         sortOrder: 'asc',
       })
-       sorter = getSorter('name','asc')
-    }
 
-    let sortedItems = Array.from(this.state.items);
-    sortedItems = sortedItems.sort(sorter);
-    console.log(sortedItems)
-    return sortedItems;
+      sortedItems = this.props.items.sort(function (x, y) {
+        let a = x.taskName.toUpperCase(),
+            b = y.taskName.toUpperCase();
+        return a === b ? 0 : a > b ? -1 : 1;
+    });
+    }
+    this.setState({
+      items: sortedItems,
+    })
+  console.log(sortedItems)
   }
 
   sortByPriority = () => {
-    const sorter = getSorter('priority')
 
   }
 
