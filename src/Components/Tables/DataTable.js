@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { Table, Button } from "reactstrap";
+import { Table } from "reactstrap";
 import ModalAddEdit from "../Modals/ModalAddEdit";
-
+import ModalConfirmDelete from "../Modals/ModalConfirmDelete";
 class DataTable extends Component {
   state = {
     sortOrder: "INIT",
     items: this.props.items,
   };
 
-  deleteItem = (id) => {
-    let confirmDelete = window.confirm("Sure you wish to delete this To-do?");
-    if (confirmDelete) {
-      this.props.deleteItemFromState(id);
-    }
-  };
+  // deleteItem = (id) => {
+  //   let confirmDelete = window.confirm("Sure you wish to delete this To-do?");
+  //   if (confirmDelete) {
+  //     this.props.deleteItemFromState(id);
+  //   }
+  // };
 
   sortByName = () => {
     console.log(this.state.sortOrder);
@@ -89,9 +89,14 @@ class DataTable extends Component {
                 item={item}
                 updateState={this.props.updateState}
               />{" "}
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>
+              <ModalConfirmDelete
+                buttonLabel="Delete To-do"
+                item={item}
+                deleteItemFromState={this.props.deleteItemFromState}
+              ></ModalConfirmDelete>
+              {/* <Button color="danger" onClick={() => this.deleteItem(item.id)}>
                 Delete To-do
-              </Button>
+              </Button> */}
             </div>
           </td>
         </tr>

@@ -28,10 +28,10 @@ class ModalAddEdit extends Component {
     let button = "";
     let title = "";
 
-    if (label === "Edit") {
+    if (label === "Edit To-do") {
       button = (
         <Button
-          color="warning"
+          color="secondary"
           onClick={this.toggle}
           style={{ float: "left", marginRight: "10px" }}
         >

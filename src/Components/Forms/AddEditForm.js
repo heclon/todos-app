@@ -10,7 +10,7 @@ class AddEditForm extends React.Component {
     id: 0,
     taskName: "",
     priority: "",
-    priorityValue: 1,
+    priorityValue: 0,
   };
 
   onChange = (e) => {
@@ -125,6 +125,7 @@ class AddEditForm extends React.Component {
               value={this.state.priorityValue}
               onChange={this.onChange}
             >
+              <MenuItem value={0}></MenuItem>
               <MenuItem value={1}>High</MenuItem>
               <MenuItem value={2}>Medium</MenuItem>
               <MenuItem value={3}>Low</MenuItem>

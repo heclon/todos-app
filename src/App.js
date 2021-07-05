@@ -4,16 +4,16 @@ import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import DataTable from "./Components/Tables/DataTable";
 
 function countByPriority(items) {
-let counterHighPriority = 0;
-let counterMediumPriority = 0;
-let counterLowPriority = 0;
+  let counterHighPriority = 0;
+  let counterMediumPriority = 0;
+  let counterLowPriority = 0;
   for (const item of items) {
     if (item.priorityValue === 1) counterHighPriority++;
     if (item.priorityValue === 2) counterMediumPriority++;
     if (item.priorityValue === 3) counterLowPriority++;
   }
-  
-return [ counterHighPriority, counterMediumPriority, counterLowPriority ]
+
+  return [counterHighPriority, counterMediumPriority, counterLowPriority];
 }
 class App extends Component {
   state = {
@@ -31,7 +31,7 @@ class App extends Component {
     this.setState((prevState) => ({
       items: [...prevState.items, item],
     }));
-    this.updateCounters()
+    this.updateCounters();
   };
 
   updateState = (item) => {
@@ -42,41 +42,34 @@ class App extends Component {
       ...this.state.items.slice(itemIndex + 1),
     ];
     this.setState({ items: newArray });
-    this.updateCounters()
+    this.updateCounters();
   };
 
   deleteItemFromState = (id) => {
     const updatedItems = this.state.items.filter((item) => item.id !== id);
     this.setState({ items: updatedItems });
-    this.updateCounters(this.state.items)
+    this.updateCounters();
   };
 
   componentDidMount() {
     this.getItems();
   }
 
+  updateCounters() {
+    const items = this.state.items;
+    const [counterHighPriority, counterMediumPriority, counterLowPriority] =
+      countByPriority(items);
 
-  
-  updateCounters(){
-    const items = this.state.items
-    const [ counterHighPriority, 
-      counterMediumPriority, 
-      counterLowPriority ] =  countByPriority(items)
-
-      
     this.setState({
       highPriority: counterHighPriority,
       mediumPriority: counterMediumPriority,
-      lowPriority: counterLowPriority
-    })
-
+      lowPriority: counterLowPriority,
+    });
   }
 
   render() {
-
-    const [ counterHighPriority, 
-      counterMediumPriority, 
-      counterLowPriority ] =  countByPriority(this.state.items)
+    const [counterHighPriority, counterMediumPriority, counterLowPriority] =
+      countByPriority(this.state.items);
 
     return (
       <Container className="App">
@@ -95,10 +88,8 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-danger rounded">
               <Toast>
-                <ToastHeader>
-                  High Priority
-                </ToastHeader>
-                <ToastBody>
+                <ToastHeader>High Priority</ToastHeader>
+                <ToastBody style={{ fontSize: "20px" }}>
                   {counterHighPriority}
                 </ToastBody>
               </Toast>
@@ -107,11 +98,9 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-warning rounded">
               <Toast>
-                <ToastHeader>
-                Medium Priority 
-                </ToastHeader>
-                <ToastBody>
-                {counterMediumPriority}
+                <ToastHeader>Medium Priority</ToastHeader>
+                <ToastBody style={{ fontSize: "20px" }}>
+                  {counterMediumPriority}
                 </ToastBody>
               </Toast>
             </div>
@@ -119,11 +108,9 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-primary rounded">
               <Toast>
-                <ToastHeader>
-                  Low Priority
-                </ToastHeader>
-                <ToastBody>
-                {counterLowPriority}
+                <ToastHeader>Low Priority</ToastHeader>
+                <ToastBody style={{ fontSize: "20px" }}>
+                  {counterLowPriority}
                 </ToastBody>
               </Toast>
             </div>
@@ -140,11 +127,8 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-          Created by Hector Longarte</Col>
-        </Row>
-        <Row>
-          <Col>
-          Linkedin: </Col>
+            <a href="www.linkedin.com/in/hector-longarte">Hector Longarte</a>
+          </Col>
         </Row>
       </Container>
     );
