@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --coverage",
+    "test": "jest --coverage --updateSnapshot",
     "prettier": "prettier --write .",
     "eject": "react-scripts eject"
   },

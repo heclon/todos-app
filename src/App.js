@@ -17,12 +17,15 @@ function countByPriority(items) {
   return [counterHighPriority, counterMediumPriority, counterLowPriority];
 }
 class App extends Component {
-  state = {
-    items: [],
-    highPriority: 0,
-    mediumPriority: 0,
-    lowPriority: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      highPriority: 0,
+      mediumPriority: 0,
+      lowPriority: 0,
+    };
+  }
 
   getItems() {
     this.setState({ items: [] });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App tests render correctly App component 1`] = `
+exports[`App tests App rendering tests snapshot test render correctly App component 1`] = `
 <div
   className="App container"
 >
