@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import DataTable from "./Components/Tables/DataTable";
-import Linkedin from './Components/Links/Linkedin'
+import Linkedin from "./Components/Links/Linkedin";
 
 function countByPriority(items) {
   let counterHighPriority = 0;
@@ -128,7 +128,10 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-            <Linkedin author="Hector Longarte"></Linkedin>            
+            <Linkedin
+              author="Hector Longarte"
+              link="https://linkedin.com/in/hector-longarte"
+            />
           </Col>
         </Row>
       </Container>

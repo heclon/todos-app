@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 class Linkedin extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    render(){
+  render() {
     return (
-        <a href="www.linkedin.com/in/hector-longarte" id="linkedin" className="linkedin">
-            {this.props.author}</a>
-    )};
+      <a rel="noopener noreferrer" href={this.props.link} target="_blank">
+        {this.props.author}
+      </a>
+    );
+  }
 }
 
 export default Linkedin;
