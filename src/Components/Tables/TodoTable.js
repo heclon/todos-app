@@ -2,18 +2,14 @@ import React, { Component } from "react";
 import { Table } from "reactstrap";
 import ModalAddEdit from "../Modals/ModalAddEdit";
 import ModalConfirmDelete from "../Modals/ModalConfirmDelete";
-class DataTable extends Component {
-  state = {
-    sortOrder: "INIT",
-    items: this.props.items,
-  };
-
-  // deleteItem = (id) => {
-  //   let confirmDelete = window.confirm("Sure you wish to delete this To-do?");
-  //   if (confirmDelete) {
-  //     this.props.deleteItemFromState(id);
-  //   }
-  // };
+class TodoTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortOrder: "INIT",
+      items: this.props.items,
+    };
+  }
 
   sortByName = () => {
     // console.log(this.state.sortOrder);
@@ -94,9 +90,6 @@ class DataTable extends Component {
                 item={item}
                 deleteItemFromState={this.props.deleteItemFromState}
               ></ModalConfirmDelete>
-              {/* <Button color="danger" onClick={() => this.deleteItem(item.id)}>
-                Delete To-do
-              </Button> */}
             </div>
           </td>
         </tr>
@@ -108,10 +101,15 @@ class DataTable extends Component {
         <thead>
           <tr>
             <th>ID</th>
-            <th style={{ cursor: "pointer" }} onClick={() => this.sortByName()}>
+            <th
+              id="task-header"
+              style={{ cursor: "pointer" }}
+              onClick={() => this.sortByName()}
+            >
               Task to-do name
             </th>
             <th
+              id="priority-header"
               style={{ cursor: "pointer" }}
               onClick={() => this.sortByPriority()}
             >
@@ -126,4 +124,4 @@ class DataTable extends Component {
   }
 }
 
-export default DataTable;
+export default TodoTable;

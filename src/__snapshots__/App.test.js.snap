@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App render correctly App component 1`] = `
+exports[`App tests render correctly App component 1`] = `
 <div
   className="App container"
 >
@@ -164,6 +164,7 @@ exports[`App render correctly App component 1`] = `
                 ID
               </th>
               <th
+                id="task-header"
                 onClick={[Function]}
                 style={
                   Object {
@@ -174,6 +175,7 @@ exports[`App render correctly App component 1`] = `
                 Task to-do name
               </th>
               <th
+                id="priority-header"
                 onClick={[Function]}
                 style={
                   Object {

@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] = `
+<div
+  className="table-responsive"
+>
+  <table
+    className="table table-dark table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th
+          id="task-header"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          Task to-do name
+        </th>
+        <th
+          id="priority-header"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          Priority
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th
+          scope="row"
+        >
+          hook
+        </th>
+        <td>
+          Demo React Hooks
+        </td>
+        <td>
+          High
+        </td>
+        <td>
+          <div
+            style={
+              Object {
+                "width": "110px",
+              }
+            }
+          >
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-secondary"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "float": "left",
+                    "marginRight": "10px",
+                  }
+                }
+                type="button"
+              >
+                Edit To-do
+              </button>
+            </div>
+             
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-danger"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete To-do
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+        >
+          awsx
+        </th>
+        <td>
+          AWS Architecture exams
+        </td>
+        <td>
+          Medium
+        </td>
+        <td>
+          <div
+            style={
+              Object {
+                "width": "110px",
+              }
+            }
+          >
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-secondary"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "float": "left",
+                    "marginRight": "10px",
+                  }
+                }
+                type="button"
+              >
+                Edit To-do
+              </button>
+            </div>
+             
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-danger"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete To-do
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+        >
+          awsd
+        </th>
+        <td>
+          AWS Development exam
+        </td>
+        <td>
+          Medium
+        </td>
+        <td>
+          <div
+            style={
+              Object {
+                "width": "110px",
+              }
+            }
+          >
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-secondary"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "float": "left",
+                    "marginRight": "10px",
+                  }
+                }
+                type="button"
+              >
+                Edit To-do
+              </button>
+            </div>
+             
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-danger"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete To-do
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+        >
+          pyad
+        </th>
+        <td>
+          Python advanced learning
+        </td>
+        <td>
+          Low
+        </td>
+        <td>
+          <div
+            style={
+              Object {
+                "width": "110px",
+              }
+            }
+          >
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-secondary"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "float": "left",
+                    "marginRight": "10px",
+                  }
+                }
+                type="button"
+              >
+                Edit To-do
+              </button>
+            </div>
+             
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-danger"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete To-do
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th
+          scope="row"
+        >
+          zing
+        </th>
+        <td>
+          Zing-Zing last
+        </td>
+        <td>
+          Medium
+        </td>
+        <td>
+          <div
+            style={
+              Object {
+                "width": "110px",
+              }
+            }
+          >
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-secondary"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "float": "left",
+                    "marginRight": "10px",
+                  }
+                }
+                type="button"
+              >
+                Edit To-do
+              </button>
+            </div>
+             
+            <div>
+              <button
+                aria-label={null}
+                className="btn btn-danger"
+                onClick={[Function]}
+                type="button"
+              >
+                Delete To-do
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

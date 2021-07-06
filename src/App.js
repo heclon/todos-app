@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
-import DataTable from "./Components/Tables/DataTable";
+import TodoTable from "./Components/Tables/TodoTable";
 import Linkedin from "./Components/Links/Linkedin";
 
 function countByPriority(items) {
@@ -119,7 +119,7 @@ class App extends Component {
         </Row>
         <Row>
           <Col>
-            <DataTable
+            <TodoTable
               items={this.state.items}
               updateState={this.updateState}
               deleteItemFromState={this.deleteItemFromState}

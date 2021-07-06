@@ -4,7 +4,7 @@ import App from "./App";
 import Linkedin from "./Components/Links/Linkedin";
 import renderer from "react-test-renderer";
 
-describe("App", () => {
+describe("App tests", () => {
   it("render correctly App component", () => {
     const app = renderer.create(<App />).toJSON();
     expect(app).toMatchSnapshot();
