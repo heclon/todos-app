@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Linkedin renders correctly snapshot test render correctly App component 1`] = `
+<a
+  href="https://linkedin.com/in/john.doe"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  John Doe
+</a>
+`;

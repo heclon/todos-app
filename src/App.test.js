@@ -3,7 +3,6 @@ import { mount } from "enzyme";
 import App from "./App";
 import TodoTable from "./Components/Tables/TodoTable";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
-import Linkedin from "./Components/Links/Linkedin";
 import renderer from "react-test-renderer";
 import mockedItems from "./Components/Tables/mockedItems";
 
