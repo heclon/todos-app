@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Table } from "reactstrap";
 import ModalAddEdit from "../Modals/ModalAddEdit";
 import ModalConfirmDelete from "../Modals/ModalConfirmDelete";
-class TodoTable extends Component {
+
+class TodosTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -128,4 +129,4 @@ class TodoTable extends Component {
   }
 }
 
-export default TodoTable;
+export default TodosTable;

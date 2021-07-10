@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
-import TodoTable from "./Components/Tables/TodoTable";
+import TodosTable from "./Components/Tables/TodosTable";
 import XTable from "./Components/Tables/XTable"
 import Linkedin from "./Components/Links/Linkedin";
 
@@ -154,7 +154,7 @@ class App extends Component {
           </Row>
         <Row>
           <Col>
-            <TodoTable
+            <TodosTable
               items={this.state.items}
               updateState={this.updateState}
               deleteItemFromState={this.deleteItemFromState}

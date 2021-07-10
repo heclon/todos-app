@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] = `
+exports[`TodosTable tests snapshot test render correctly TodosTable component 1`] = `
 <div
   className="table-responsive"
 >

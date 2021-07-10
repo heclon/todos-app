@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import App from "./App";
-import TodoTable from "./Components/Tables/TodoTable";
+import TodoTable from "./Components/Tables/TodosTable";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import renderer from "react-test-renderer";
 import mockedItems from "./Components/Tables/mockedItems";

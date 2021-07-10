@@ -1,17 +1,17 @@
 import React from "react";
 import { mount } from "enzyme";
 import App from "../../App";
-import TodoTable from "./TodoTable";
+import TodosTable from "./TodosTable";
 import ModalAddEdit from "../Modals/ModalAddEdit";
 import ModalConfirmDelete from "../Modals/ModalConfirmDelete";
 import renderer from "react-test-renderer";
 import mockedItems from "./mockedItems";
 
-describe("TodoTable tests", () => {
+describe("TodosTable tests", () => {
   let todoTableComponent;
   beforeEach(() => {
     todoTableComponent = mount(
-      <TodoTable
+      <TodosTable
         items={mockedItems}
         addItemToState={App.addItemToState}
         updateState={App.updateState}
@@ -19,10 +19,10 @@ describe("TodoTable tests", () => {
     );
   });
 
-  it("snapshot test render correctly TodoTable component", () => {
+  it("snapshot test render correctly TodosTable component", () => {
     const todoTable = renderer
       .create(
-        <TodoTable
+        <TodosTable
           items={mockedItems}
           addItemToState={App.addItemToState}
           updateState={App.updateState}
@@ -32,7 +32,7 @@ describe("TodoTable tests", () => {
     expect(todoTable).toMatchSnapshot();
   });
 
-  it("Test that TodoTable renders to-do items correctly", () => {
+  it("Test that TodosTable renders to-do items correctly", () => {
     // there should be one table HTML element rendered
     const table = todoTableComponent.find("table");
     expect(table).toHaveLength(1);
@@ -80,7 +80,7 @@ describe("TodoTable tests", () => {
     expect(tds.at(1).text()).toBe(mockedItems[0].priority);
   });
 
-  describe("test TodoTable sorts", () => {
+  describe("test TodosTable sorts", () => {
     it("Test sort in ASC order upon click on taskName header", () => {
       // Simulate click on Task To-do name
       const thead = todoTableComponent.find("thead");
@@ -192,7 +192,7 @@ describe("TodoTable tests", () => {
     });
   });
 
-  describe("Test TodoTable button actions", () => {
+  describe("Test TodosTable button actions", () => {
     it("Edit button saves the item new state on todos table", () => {});
 
     it("Delete button removes item from todos table", () => {});
