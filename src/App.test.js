@@ -1,10 +1,15 @@
 import React from "react";
 import { mount } from "enzyme";
 import App from "./App";
-import TodoTable from "./Components/Tables/TodosTable";
+import TodosTable from "./Components/Tables/TodosTable";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import renderer from "react-test-renderer";
 import mockedItems from "./Components/Tables/mockedItems";
+import listHeaders from "./Components/Tables/listHeaders";
+import {
+  ToastBody,
+  ToastHeader,
+} from "reactstrap";
 
 describe("App tests", () => {
   let appComponent;
@@ -12,12 +17,15 @@ describe("App tests", () => {
   beforeEach(() => {
     appComponent = mount(<App />);
     todoTableComponent = mount(
-      <TodoTable
-        items={mockedItems}
-        addItemToState={App.addItemToState}
+      <TodosTable
+        columns={listHeaders}
+        data={mockedItems}
         updateState={App.updateState}
+        deleteItemFromState={App.deleteItemFromState}
+        loading={false}  
       />
     );
+
   });
 
   describe("App rendering tests", () => {
@@ -30,103 +38,77 @@ describe("App tests", () => {
       expect(app).toMatchSnapshot();
     });
 
-    // it("renders the ModalAddEdit to add a new to-do ", () => {
-    //   const modalAddEdit = appComponent.find(ModalAddEdit);
-    //   expect(modalAddEdit).toHaveLength(1);
-    //   expect(modalAddEdit.text()).toBe("Add To-do");
-    // });
+    it("renders the ModalAddEdit to add a new to-do ", () => {
+      const modalAddEdit = appComponent.find(ModalAddEdit);
+      expect(modalAddEdit).toHaveLength(1);
+      expect(modalAddEdit.text()).toBe("Add To-do");
+    });
 
-    // it("renders the priority counters correctly", () => {
-    //   const toastsHeaders = appComponent.find(".toast-header");
-    //   expect(toastsHeaders).toHaveLength(3);
+    it("renders the priority counters correctly", () => {
+      
+      const toastHeaders = appComponent.find(ToastHeader)
+      expect(toastHeaders).toHaveLength(3);
 
-    //   // high priority counter header
-    //   expect(toastsHeaders.at(0).text()).toBe("High Priority");
+      // high priority counter header
+      expect(toastHeaders.at(0).text()).toBe("High Priority");
 
-    //   // medium priority counter header
-    //   expect(toastsHeaders.at(1).text()).toBe("Medium Priority");
+      // medium priority counter header
+      expect(toastHeaders.at(1).text()).toBe("Medium Priority");
 
-    //   // low priority counter header
-    //   expect(toastsHeaders.at(2).text()).toBe("Low Priority");
+      // low priority counter header
+      expect(toastHeaders.at(2).text()).toBe("Low Priority");
 
-    //   // and counters should be zero initially
-    //   const toastsValues = appComponent.find(".toast-body");
-    //   expect(toastsValues).toHaveLength(3);
+      // and counters should be zero initially
+      const toastValues = appComponent.find(".toast-body");
+      expect(toastValues).toHaveLength(3);
 
-    //   expect(toastsValues.at(0).text()).toBe("0");
-    //   expect(toastsValues.at(1).text()).toBe("0");
-    //   expect(toastsValues.at(2).text()).toBe("0");
-    // });
+      expect(toastValues.at(0).text()).toBe("0");
+      expect(toastValues.at(1).text()).toBe("0");
+      expect(toastValues.at(2).text()).toBe("0");
+    });
   });
 
-  // describe("Priority counters tests", () => {
-  //   it("App displays values on priority counters correctly", () => {
-  //     // set state values
-  //     appComponent.setState({
-  //       items: mockedItems,
-  //       highPriority: 1,
-  //       mediumPriority: 3,
-  //       lowPriority: 1,
-  //     });
+  describe("Priority counters tests", () => {
 
-  //     const table = todoTableComponent.find("table");
-  //     const body = table.find("tbody");
-  //     const rows = body.find("tr");
-  //     expect(rows).toHaveLength(5);
+    it("App displays values on priority counters correctly", () => {
+      // set state values
+      appComponent.setState({
+        items: mockedItems,
+      });
+      const countByPriority = jest.fn(() => {
+        return [1,3,1];
+      });
+  
+      const updateCounters = jest.fn(() => {
+        const [counterHighPriority, counterMediumPriority, counterLowPriority] =
+        countByPriority();
+        appComponent.setState({
+            highPriority: counterHighPriority,
+            mediumPriority: counterMediumPriority,
+            lowPriority: counterLowPriority,
+        })
+      });
+      updateCounters();
+      
+      const table = todoTableComponent.find("table");
+      const body = table.find("tbody");
+      const rows = body.find("tr");
+      expect(rows).toHaveLength(5);
 
-  //     // check for counters to have values 1,3,1
-  //     const toastsValues = appComponent.find(".toast-body");
-  //     expect(toastsValues).toHaveLength(3);
+      const toastHeaders = appComponent.find(ToastHeader)
+      expect(toastHeaders).toHaveLength(3);
+      expect(toastHeaders.at(0).text()).toBe("High Priority");
+      expect(toastHeaders.at(1).text()).toBe("Medium Priority");
+      expect(toastHeaders.at(2).text()).toBe("Low Priority");
 
-  //     expect(toastsValues.at(0).text()).toBe("1");
-  //     expect(toastsValues.at(1).text()).toBe("3");
-  //     expect(toastsValues.at(2).text()).toBe("1");
-  //   });
+      // check for counters to have values 1,3,1
+      const toastValues = appComponent.find(ToastBody);
+      expect(toastValues).toHaveLength(3);
+     
+      expect(toastValues.at(0).text()).toBe("1");
+      expect(toastValues.at(1).text()).toBe("3");
+      expect(toastValues.at(2).text()).toBe("1");
+    });
 
-  //   it("App updates values on priority counters correctly ", () => {
-  //     // set state values
-  //     appComponent.setState({
-  //       items: mockedItems,
-  //       highPriority: 1,
-  //       mediumPriority: 3,
-  //       lowPriority: 1,
-  //     });
-
-  //     const table = todoTableComponent.find("table");
-  //     const body = table.find("tbody");
-  //     const rows = body.find("tr");
-  //     expect(rows).toHaveLength(5);
-
-  //     // check for counters to have values 1,3,1
-  //     let toastsValues = appComponent.find(".toast-body");
-  //     expect(toastsValues).toHaveLength(3);
-
-  //     expect(toastsValues.at(0).text()).toBe("1");
-  //     expect(toastsValues.at(1).text()).toBe("3");
-  //     expect(toastsValues.at(2).text()).toBe("1");
-
-  //     // change those values and check against new expected values
-  //     const modifiedItem = {
-  //       id: "awsx",
-  //       taskName: "AWS Architecture exams",
-  //       priority: "High",
-  //       priorityValue: 1,
-  //     };
-  //     mockedItems[1] = modifiedItem;
-
-  //     appComponent.setState({
-  //       items: mockedItems,
-  //       highPriority: 2,
-  //       mediumPriority: 2,
-  //       lowPriority: 1,
-  //     });
-
-  //     toastsValues = appComponent.find(".toast-body");
-  //     expect(toastsValues).toHaveLength(3);
-
-  //     expect(toastsValues.at(0).text()).toBe("2");
-  //     expect(toastsValues.at(1).text()).toBe("2");
-  //     expect(toastsValues.at(2).text()).toBe("1");
-  //   });
-  // });
+  });
 });

@@ -1,296 +1,668 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodosTable tests snapshot test render correctly TodosTable component 1`] = `
-<div
-  className="table-responsive"
->
-  <table
-    className="table table-bordered table-hover"
+Array [
+  <div
+    className="table-responsive"
   >
-    <thead>
-      <tr>
-        <th>
-          ID
-        </th>
-        <th
-          id="task-header"
-          onClick={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
+    <table
+      className="table table-bordered table-hover"
+      role="table"
+    >
+      <thead>
+        <tr
+          className="theader"
+          role="row"
         >
-          Task to-do name
-        </th>
-        <th
-          id="priority-header"
-          onClick={[Function]}
-          style={
-            Object {
-              "cursor": "pointer",
-            }
-          }
-        >
-          Priority
-        </th>
-        <th>
-          Actions
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th
-          scope="row"
-        >
-          hook
-        </th>
-        <td>
-          Demo React Hooks
-        </td>
-        <td>
-          High
-        </td>
-        <td>
-          <div
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
             style={
               Object {
-                "width": "110px",
+                "cursor": "pointer",
               }
             }
+            title="Toggle SortBy"
           >
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-success"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "float": "left",
-                    "marginRight": "10px",
-                  }
-                }
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-             
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-danger"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th
-          scope="row"
-        >
-          awsx
-        </th>
-        <td>
-          AWS Architecture exams
-        </td>
-        <td>
-          Medium
-        </td>
-        <td>
-          <div
+            ID
+            <span
+              className="float-right"
+            >
+              
+            </span>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
             style={
               Object {
-                "width": "110px",
+                "cursor": "pointer",
               }
             }
+            title="Toggle SortBy"
           >
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-success"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "float": "left",
-                    "marginRight": "10px",
-                  }
-                }
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-             
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-danger"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th
-          scope="row"
-        >
-          awsd
-        </th>
-        <td>
-          AWS Development exam
-        </td>
-        <td>
-          Medium
-        </td>
-        <td>
-          <div
+            Task Name
+            <span
+              className="float-right"
+            >
+              <img
+                alt="sorting"
+                src=""
+              />
+            </span>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
             style={
               Object {
-                "width": "110px",
+                "cursor": "pointer",
               }
             }
+            title="Toggle SortBy"
           >
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-success"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "float": "left",
-                    "marginRight": "10px",
-                  }
-                }
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-             
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-danger"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th
-          scope="row"
-        >
-          pyad
-        </th>
-        <td>
-          Python advanced learning
-        </td>
-        <td>
-          Low
-        </td>
-        <td>
-          <div
+            Priority
+            <span
+              className="float-right"
+            >
+              <img
+                alt="sorting"
+                src=""
+              />
+            </span>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
             style={
               Object {
-                "width": "110px",
+                "cursor": "pointer",
               }
             }
+            title="Toggle SortBy"
           >
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-success"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "float": "left",
-                    "marginRight": "10px",
-                  }
-                }
-                type="button"
-              >
-                Edit
-              </button>
-            </div>
-             
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-danger"
-                onClick={[Function]}
-                type="button"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th
-          scope="row"
-        >
-          zing
-        </th>
-        <td>
-          Zing-Zing last
-        </td>
-        <td>
-          Medium
-        </td>
-        <td>
-          <div
+            Status
+            <span
+              className="float-right"
+            >
+              <img
+                alt="sorting"
+                src=""
+              />
+            </span>
+          </th>
+          <th
+            colSpan={1}
+            onClick={[Function]}
+            role="columnheader"
             style={
               Object {
-                "width": "110px",
+                "cursor": "pointer",
               }
             }
+            title="Toggle SortBy"
           >
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-success"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "float": "left",
-                    "marginRight": "10px",
+            Actions
+            <span
+              className="float-right"
+            >
+              <img
+                alt="sorting"
+                src=""
+              />
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        role="rowgroup"
+      >
+        <tr
+          role="row"
+        >
+          <td
+            className="t-cell-1 text-left"
+            role="cell"
+          >
+            hook
+          </td>
+          <td
+            className="t-cell-2 text-left"
+            role="cell"
+          >
+            Demo React Hooks
+          </td>
+          <td
+            className="t-cell-3 text-left"
+            role="cell"
+          >
+            High
+          </td>
+          <td
+            className="t-cell-4 text-center"
+            role="cell"
+          >
+            In progress
+          </td>
+          <td
+            className="t-cell-5 text-center"
+            role="cell"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
                   }
-                }
-                type="button"
-              >
-                Edit
-              </button>
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "float": "left",
+                          "marginRight": "10px",
+                        }
+                      }
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-             
-            <div>
-              <button
-                aria-label={null}
-                className="btn btn-danger"
-                onClick={[Function]}
-                type="button"
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            className="t-cell-1 text-left"
+            role="cell"
+          >
+            awsx
+          </td>
+          <td
+            className="t-cell-2 text-left"
+            role="cell"
+          >
+            AWS Architecture exams
+          </td>
+          <td
+            className="t-cell-3 text-left"
+            role="cell"
+          >
+            Medium
+          </td>
+          <td
+            className="t-cell-4 text-center"
+            role="cell"
+          >
+            Pending
+          </td>
+          <td
+            className="t-cell-5 text-center"
+            role="cell"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
               >
-                Delete
-              </button>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "float": "left",
+                          "marginRight": "10px",
+                        }
+                      }
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            className="t-cell-1 text-left"
+            role="cell"
+          >
+            awsd
+          </td>
+          <td
+            className="t-cell-2 text-left"
+            role="cell"
+          >
+            AWS Development exam
+          </td>
+          <td
+            className="t-cell-3 text-left"
+            role="cell"
+          >
+            Medium
+          </td>
+          <td
+            className="t-cell-4 text-center"
+            role="cell"
+          >
+            In progress
+          </td>
+          <td
+            className="t-cell-5 text-center"
+            role="cell"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "float": "left",
+                          "marginRight": "10px",
+                        }
+                      }
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            className="t-cell-1 text-left"
+            role="cell"
+          >
+            pyad
+          </td>
+          <td
+            className="t-cell-2 text-left"
+            role="cell"
+          >
+            Python advanced learning
+          </td>
+          <td
+            className="t-cell-3 text-left"
+            role="cell"
+          >
+            Low
+          </td>
+          <td
+            className="t-cell-4 text-center"
+            role="cell"
+          >
+            Pending
+          </td>
+          <td
+            className="t-cell-5 text-center"
+            role="cell"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "float": "left",
+                          "marginRight": "10px",
+                        }
+                      }
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr
+          role="row"
+        >
+          <td
+            className="t-cell-1 text-left"
+            role="cell"
+          >
+            zing
+          </td>
+          <td
+            className="t-cell-2 text-left"
+            role="cell"
+          >
+            Zing-Zing last
+          </td>
+          <td
+            className="t-cell-3 text-left"
+            role="cell"
+          >
+            Medium
+          </td>
+          <td
+            className="t-cell-4 text-center"
+            role="cell"
+          >
+            Done
+          </td>
+          <td
+            className="t-cell-5 text-center"
+            role="cell"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-secondary"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "float": "left",
+                          "marginRight": "10px",
+                        }
+                      }
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="col"
+                  style={
+                    Object {
+                      "float": "center",
+                      "margin": "5px",
+                    }
+                  }
+                >
+                  <div>
+                    <button
+                      aria-label={null}
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+  <div
+    className="div-pagination"
+  >
+    <div
+      className="div-pagination-2"
+    >
+      <div
+        className="div-pagination-2-2"
+      >
+        Showing
+         
+        <select
+          className="selectan"
+          onChange={[Function]}
+          value={10}
+        >
+          <option
+            value={10}
+          >
+            10
+          </option>
+          <option
+            value={20}
+          >
+            20
+          </option>
+          <option
+            value={30}
+          >
+            30
+          </option>
+          <option
+            value={50}
+          >
+            50
+          </option>
+          <option
+            value={100}
+          >
+            100
+          </option>
+        </select>
+         
+        record per-page
+      </div>
+    </div>
+    <div
+      className="div-pagination-1"
+    >
+      Page : 
+      1
+       from 
+      1
+       
+      <nav
+        aria-label="pagination"
+        className="pagina"
+      >
+        <ul
+          className="pagination"
+        >
+          <li
+            className="page-item disabled"
+          >
+            <button
+              className="page-link"
+              onClick={[Function]}
+            >
+              &lt;&lt;
+            </button>
+          </li>
+          <li
+            className="page-item disabled"
+          >
+            <button
+              className="page-link"
+              onClick={[Function]}
+            >
+              &lt;
+            </button>
+          </li>
+          <li
+            className="page-item disabled"
+          >
+            <button
+              className="page-link"
+              onClick={[Function]}
+            >
+              &gt;
+            </button>
+          </li>
+          <li
+            className="page-item disabled"
+          >
+            <button
+              className="page-link"
+              onClick={[Function]}
+            >
+              &gt;&gt;
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>,
+]
 `;

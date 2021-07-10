@@ -13,8 +13,8 @@ import ModalAddEdit from "../Modals/ModalAddEdit";
 import ModalConfirmDelete from "../Modals/ModalConfirmDelete";
 
 const TodosTable = ({
-  columns,
   data,
+  columns,
   updateState,
   deleteItemFromState,
   loading = true,
@@ -53,9 +53,9 @@ const TodosTable = ({
         <thead>
           {headerGroups.map((headerGroup) => (
             <>
-              <tr key={0} className="theader" {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+              <tr key={"header"} className="theader" {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column,i) => (
+                  <th  key={i} {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render("Header")}
                     <span className="float-right">
                       {!column.notShowSortingDisplay ? (
@@ -99,19 +99,16 @@ const TodosTable = ({
             ) : (
               <tbody {...getTableBodyProps()}>
                 {page.map((row, i) => {
-                  console.log(i)
-
+                  // console.log(i)
                   prepareRow(row);
                   return (
                     <tr key={row.id} {...row.getRowProps()}>
                       {row.cells.map((cell) => {
 
                         const header = cell.column.Header;
-                        
-
                         if (header === "Actions") {
                           return (
-                            <td
+                            <td 
                               {...cell.getCellProps({
                                 className: cell.column.className,
                               })}

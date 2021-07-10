@@ -10,35 +10,7 @@ import {
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import TodosTable from "./Components/Tables/TodosTable";
 import Linkedin from "./Components/Links/Linkedin";
-
-const listHeader = [
-  {
-    Header: "ID",
-    className: "t-cell-1 text-left",
-    accessor: "id",
-    notShowSortingDisplay: true,
-  },
-  {
-    Header: "Task Name",
-    accessor: "taskName",
-    className: "t-cell-2 text-left",
-  },
-  {
-    Header: "Priority",
-    accessor: "priority",
-    className: "t-cell-3 text-left",
-  },
-  {
-    Header: "Status",
-    accessor: "status",
-    className: "t-cell-4 text-center",
-  },
-  {
-    Header: "Actions",
-    accessor: "actions",
-    className: "t-cell-5 text-center",
-  },
-];
+import listHeaders from "./Components/Tables/listHeaders"
 
 function countByPriority(items) {
   let counterHighPriority = 0;
@@ -141,6 +113,7 @@ class App extends Component {
         </Row> */}
 
         <Row style={{ marginBottom: "1%" }}>
+
           <Col>
             <div className="p-3 bg-danger">
               <Toast>
@@ -165,12 +138,13 @@ class App extends Component {
               </Toast>
             </div>
           </Col>
+          
         </Row>
 
         <Row>
           <Col>
             <TodosTable
-              columns={listHeader}
+              columns={listHeaders}
               loading={false}
               data={this.state.items}
               updateState={this.updateState}

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "babel-loader": "^8.2.2",
     "bem-react-component-creator": "^1.2.0",
     "bootstrap": "^4.3.1",
     "enzyme": "^3.11.0",
@@ -25,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage --updateSnapshot",
+    "test:debug": "node --inspect $(npm bin)/jest --watch --no-cache --runInBand",
     "prettier": "prettier --write .",
     "eject": "react-scripts eject"
   },

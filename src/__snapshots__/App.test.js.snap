@@ -272,7 +272,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
                 className="text-left"
                 colSpan="10000"
               >
-                -- No recrods to show --
+                -- No records found --
               </td>
             </tr>
           </tbody>
