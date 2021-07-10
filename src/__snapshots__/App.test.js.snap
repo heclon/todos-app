@@ -2,7 +2,7 @@
 
 exports[`App tests App rendering tests snapshot test render correctly App component 1`] = `
 <div
-  className="App container"
+  className="container"
 >
   <div
     className="row"
@@ -13,7 +13,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
       <h1
         style={
           Object {
-            "margin": "20px 0",
+            "margin": "1%",
           }
         }
       >
@@ -25,28 +25,32 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
     className="row"
     style={
       Object {
-        "margin": "3%",
+        "margin": "1% 0",
       }
     }
   >
     <div
       className="col"
     >
-      <div>
-        <button
-          aria-label={null}
-          className="btn btn-success"
-          onClick={[Function]}
-          style={
-            Object {
-              "float": "left",
-              "marginRight": "10px",
+      <div
+        className="row"
+      >
+        <div>
+          <button
+            aria-label={null}
+            className="btn btn-success"
+            onClick={[Function]}
+            style={
+              Object {
+                "float": "left",
+                "marginRight": "10px",
+              }
             }
-          }
-          type="button"
-        >
-          Add To-do
-        </button>
+            type="button"
+          >
+            Add To-do
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -54,7 +58,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
     className="row"
     style={
       Object {
-        "margin": "3%",
+        "marginBottom": "1%",
       }
     }
   >
@@ -151,179 +155,128 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
       >
         <table
           className="table table-bordered table-hover"
+          role="table"
         >
           <thead>
-            <tr>
-              <th>
-                ID
-              </th>
+            <tr
+              className="theader"
+              role="row"
+            >
               <th
-                id="task-header"
+                colSpan={1}
                 onClick={[Function]}
+                role="columnheader"
                 style={
                   Object {
                     "cursor": "pointer",
                   }
                 }
+                title="Toggle SortBy"
               >
-                Task to-do name
+                ID
+                <span
+                  className="float-right"
+                >
+                  
+                </span>
               </th>
               <th
-                id="priority-header"
+                colSpan={1}
                 onClick={[Function]}
+                role="columnheader"
                 style={
                   Object {
                     "cursor": "pointer",
                   }
                 }
+                title="Toggle SortBy"
+              >
+                Task Name
+                <span
+                  className="float-right"
+                >
+                  <img
+                    alt="sorting"
+                    src=""
+                  />
+                </span>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
               >
                 Priority
+                <span
+                  className="float-right"
+                >
+                  <img
+                    alt="sorting"
+                    src=""
+                  />
+                </span>
               </th>
-              <th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
+                Status
+                <span
+                  className="float-right"
+                >
+                  <img
+                    alt="sorting"
+                    src=""
+                  />
+                </span>
+              </th>
+              <th
+                colSpan={1}
+                onClick={[Function]}
+                role="columnheader"
+                style={
+                  Object {
+                    "cursor": "pointer",
+                  }
+                }
+                title="Toggle SortBy"
+              >
                 Actions
+                <span
+                  className="float-right"
+                >
+                  <img
+                    alt="sorting"
+                    src=""
+                  />
+                </span>
               </th>
             </tr>
           </thead>
-          <tbody />
-        </table>
-      </div>
-    </div>
-  </div>
-  <div
-    className="row"
-  >
-    <div
-      className="col"
-    >
-      <div>
-        <div
-          className="table-responsive"
-        >
-          <table
-            className="table table-bordered table-hover"
-            role="table"
-          >
-            <thead>
-              <tr
-                className="theader"
-                role="row"
+          <tbody>
+            <tr>
+              <td
+                className="text-left"
+                colSpan="10000"
               >
-                <th
-                  colSpan={1}
-                  onClick={[Function]}
-                  role="columnheader"
-                  style={
-                    Object {
-                      "cursor": "pointer",
-                    }
-                  }
-                  title="Toggle SortBy"
-                >
-                  ID
-                  <span
-                    className="float-right"
-                  >
-                    
-                  </span>
-                </th>
-                <th
-                  colSpan={1}
-                  onClick={[Function]}
-                  role="columnheader"
-                  style={
-                    Object {
-                      "cursor": "pointer",
-                    }
-                  }
-                  title="Toggle SortBy"
-                >
-                  Task Name
-                  <span
-                    className="float-right"
-                  >
-                    <img
-                      alt="sorting"
-                      src=""
-                    />
-                  </span>
-                </th>
-                <th
-                  colSpan={1}
-                  onClick={[Function]}
-                  role="columnheader"
-                  style={
-                    Object {
-                      "cursor": "pointer",
-                    }
-                  }
-                  title="Toggle SortBy"
-                >
-                  Priority
-                  <span
-                    className="float-right"
-                  >
-                    <img
-                      alt="sorting"
-                      src=""
-                    />
-                  </span>
-                </th>
-                <th
-                  colSpan={1}
-                  onClick={[Function]}
-                  role="columnheader"
-                  style={
-                    Object {
-                      "cursor": "pointer",
-                    }
-                  }
-                  title="Toggle SortBy"
-                >
-                  Status
-                  <span
-                    className="float-right"
-                  >
-                    <img
-                      alt="sorting"
-                      src=""
-                    />
-                  </span>
-                </th>
-                <th
-                  colSpan={1}
-                  onClick={[Function]}
-                  role="columnheader"
-                  style={
-                    Object {
-                      "cursor": "pointer",
-                    }
-                  }
-                  title="Toggle SortBy"
-                >
-                  Actions
-                  <span
-                    className="float-right"
-                  >
-                    <img
-                      alt="sorting"
-                      src=""
-                    />
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td
-                  className="text-left"
-                  colSpan="10000"
-                >
-                  -- No recrods to show --
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                -- No recrods to show --
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

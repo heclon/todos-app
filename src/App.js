@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Toast,
+  ToastBody,
+  ToastHeader,
+} from "reactstrap";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import TodosTable from "./Components/Tables/TodosTable";
-import XTable from "./Components/Tables/XTable"
 import Linkedin from "./Components/Links/Linkedin";
 
 const listHeader = [
@@ -10,27 +16,27 @@ const listHeader = [
     Header: "ID",
     className: "t-cell-1 text-left",
     accessor: "id",
-    notShowSortingDisplay: true
+    notShowSortingDisplay: true,
   },
   {
     Header: "Task Name",
     accessor: "taskName",
-    className: "t-cell-2 text-left"
+    className: "t-cell-2 text-left",
   },
   {
     Header: "Priority",
     accessor: "priority",
-    className: "t-cell-3 text-left"
+    className: "t-cell-3 text-left",
   },
   {
     Header: "Status",
     accessor: "status",
-    className: "t-cell-4 text-center"
+    className: "t-cell-4 text-center",
   },
   {
     Header: "Actions",
     accessor: "actions",
-    className: "t-cell-5 text-center"
+    className: "t-cell-5 text-center",
   },
 ];
 
@@ -39,9 +45,9 @@ function countByPriority(items) {
   let counterMediumPriority = 0;
   let counterLowPriority = 0;
   for (const item of items) {
-    if (item.priorityValue === 1) counterHighPriority++;
-    if (item.priorityValue === 2) counterMediumPriority++;
-    if (item.priorityValue === 3) counterLowPriority++;
+    if (item.priorityValue === "1") counterHighPriority++;
+    if (item.priorityValue === "2") counterMediumPriority++;
+    if (item.priorityValue === "3") counterLowPriority++;
   }
 
   return [counterHighPriority, counterMediumPriority, counterLowPriority];
@@ -106,28 +112,40 @@ class App extends Component {
       countByPriority(this.state.items);
 
     return (
-      <Container className="App">
+      <Container>
         <Row>
           <Col>
-            <h1 style={{ margin: "20px 0" }}>My tasks to-do</h1>
+            <h1 style={{ margin: "1%" }}>My tasks to-do</h1>
           </Col>
         </Row>
-        <Row style={{ margin: "3%" }}>
+        <Row style={{ margin: "1% 0" }}>
           <Col>
-            <ModalAddEdit
-              buttonLabel="Add To-do"
-              addItemToState={this.addItemToState}
-            />
+            <Row>
+              <ModalAddEdit
+                buttonLabel="Add To-do"
+                addItemToState={this.addItemToState}
+              />
+            </Row>
           </Col>
         </Row>
-          <Row style={{ margin: "3%" }}>
+        {/* <Row style={{ marginBottom: "1%" }}>
+          <Col>
+            <Alert color="info">Pending: {}</Alert>
+          </Col>
+          <Col>
+            <Alert color="dark">In progress</Alert>
+          </Col>
+          <Col>
+            <Alert color="success">Done:</Alert>
+          </Col>
+        </Row> */}
+
+        <Row style={{ marginBottom: "1%" }}>
           <Col>
             <div className="p-3 bg-danger">
               <Toast>
                 <ToastHeader>High Priority</ToastHeader>
-                <ToastBody >
-                  {counterHighPriority}
-                </ToastBody>
+                <ToastBody>{counterHighPriority}</ToastBody>
               </Toast>
             </div>
           </Col>
@@ -135,9 +153,7 @@ class App extends Component {
             <div className="p-3 bg-warning">
               <Toast>
                 <ToastHeader>Medium Priority</ToastHeader>
-                <ToastBody>
-                  {counterMediumPriority}
-                </ToastBody>
+                <ToastBody>{counterMediumPriority}</ToastBody>
               </Toast>
             </div>
           </Col>
@@ -145,33 +161,21 @@ class App extends Component {
             <div className="p-3 bg-primary">
               <Toast>
                 <ToastHeader>Low Priority</ToastHeader>
-                <ToastBody>
-                  {counterLowPriority}
-                </ToastBody>
+                <ToastBody>{counterLowPriority}</ToastBody>
               </Toast>
             </div>
           </Col>
-          </Row>
+        </Row>
+
         <Row>
           <Col>
             <TodosTable
-              items={this.state.items}
+              columns={listHeader}
+              loading={false}
+              data={this.state.items}
               updateState={this.updateState}
               deleteItemFromState={this.deleteItemFromState}
             />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          <div>
-          <XTable 
-          columns={listHeader} 
-          loading={false} 
-          data={this.state.items}
-          updateState={this.updateState}
-          deleteItemFromState={this.deleteItemFromState}
-           />
-        </div>
           </Col>
         </Row>
         <Row>

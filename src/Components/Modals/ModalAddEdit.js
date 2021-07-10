@@ -28,7 +28,7 @@ class ModalAddEdit extends Component {
     let button = "";
     let title = "";
 
-    if (label === "Edit To-do") {
+    if (label === "Edit") {
       button = (
         <Button
           color="secondary"
@@ -38,7 +38,7 @@ class ModalAddEdit extends Component {
           {label}
         </Button>
       );
-      title = "Edit task To-do";
+      title = "Edit To-do";
     } else {
       button = (
         <Button
@@ -49,7 +49,7 @@ class ModalAddEdit extends Component {
           {label}
         </Button>
       );
-      title = "Add new task To-do";
+      title = "Add new To-do";
     }
 
     return (
