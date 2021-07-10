@@ -33,7 +33,7 @@ describe("App tests", () => {
     it("renders the ModalAddEdit to add a new to-do ", () => {
       const modalAddEdit = appComponent.find(ModalAddEdit);
       expect(modalAddEdit).toHaveLength(1);
-      expect(modalAddEdit.text()).toBe("Add To-do task");
+      expect(modalAddEdit.text()).toBe("Add To-do");
     });
 
     it("renders the priority counters correctly", () => {

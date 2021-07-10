@@ -78,26 +78,30 @@ class TodoTable extends Component {
           <th scope="row">{item.id}</th>
           <td>{item.taskName}</td>
           <td>{item.priority}</td>
+          
           <td>
-            <div style={{ width: "110px" }}>
-              <ModalAddEdit
-                buttonLabel="Edit To-do"
-                item={item}
-                updateState={this.props.updateState}
-              />{" "}
-              <ModalConfirmDelete
-                buttonLabel="Delete To-do"
-                item={item}
-                deleteItemFromState={this.props.deleteItemFromState}
-              ></ModalConfirmDelete>
+            <div style={{ width: "110px"}}>
+                <ModalAddEdit
+                  buttonLabel="Edit"
+                  item={item}
+                  updateState={this.props.updateState}
+              
+                />{" "}
+                <ModalConfirmDelete
+                  buttonLabel="Delete"
+                  item={item}
+                  deleteItemFromState={this.props.deleteItemFromState}
+                ></ModalConfirmDelete>
             </div>
           </td>
+
+
         </tr>
       );
     });
 
     return (
-      <Table dark responsive hover>
+      <Table responsive hover bordered>
         <thead>
           <tr>
             <th>ID</th>

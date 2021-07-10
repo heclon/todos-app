@@ -10,6 +10,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
     "react-scripts": "2.1.8",
+    "react-table": "^7.7.0",
     "reactstrap": "8.9.0",
     "uniqid": "^5.3.0"
   },
@@ -40,10 +41,15 @@
     "setupFiles": [
       "<rootDir>/test_setup/setup.js"
     ],
+    "moduleNameMapper":{
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test_setup/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/test_setup/fileMock.js"
+    },
     "testPathIgnorePatterns": [
       "coverage",
       "node_modules",
-      "test_setup"
+      "test_setup",
+      "assets"
     ],
     "globalSetup": "<rootDir>/test_setup/setup-env.js",
     "testMatch": [

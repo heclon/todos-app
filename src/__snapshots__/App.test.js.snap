@@ -17,7 +17,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           }
         }
       >
-        My To-do's
+        My tasks to-do
       </h1>
     </div>
   </div>
@@ -25,7 +25,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
     className="row"
     style={
       Object {
-        "marginBottom": "3%",
+        "margin": "3%",
       }
     }
   >
@@ -45,15 +45,24 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           }
           type="button"
         >
-          Add To-do task
+          Add To-do
         </button>
       </div>
     </div>
+  </div>
+  <div
+    className="row"
+    style={
+      Object {
+        "margin": "3%",
+      }
+    }
+  >
     <div
       className="col"
     >
       <div
-        className="p-3 bg-danger rounded"
+        className="p-3 bg-danger"
       >
         <div
           className="toast fade"
@@ -70,11 +79,6 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           </div>
           <div
             className="toast-body"
-            style={
-              Object {
-                "fontSize": "20px",
-              }
-            }
           >
             0
           </div>
@@ -85,7 +89,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
       className="col"
     >
       <div
-        className="p-3 bg-warning rounded"
+        className="p-3 bg-warning"
       >
         <div
           className="toast fade"
@@ -102,11 +106,6 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           </div>
           <div
             className="toast-body"
-            style={
-              Object {
-                "fontSize": "20px",
-              }
-            }
           >
             0
           </div>
@@ -117,7 +116,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
       className="col"
     >
       <div
-        className="p-3 bg-primary rounded"
+        className="p-3 bg-primary"
       >
         <div
           className="toast fade"
@@ -134,11 +133,6 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           </div>
           <div
             className="toast-body"
-            style={
-              Object {
-                "fontSize": "20px",
-              }
-            }
           >
             0
           </div>
@@ -156,7 +150,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
         className="table-responsive"
       >
         <table
-          className="table table-dark table-hover"
+          className="table table-bordered table-hover"
         >
           <thead>
             <tr>
@@ -192,6 +186,144 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
           </thead>
           <tbody />
         </table>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <div>
+        <div
+          className="table-responsive"
+        >
+          <table
+            className="table table-bordered table-hover"
+            role="table"
+          >
+            <thead>
+              <tr
+                className="theader"
+                role="row"
+              >
+                <th
+                  colSpan={1}
+                  onClick={[Function]}
+                  role="columnheader"
+                  style={
+                    Object {
+                      "cursor": "pointer",
+                    }
+                  }
+                  title="Toggle SortBy"
+                >
+                  ID
+                  <span
+                    className="float-right"
+                  >
+                    
+                  </span>
+                </th>
+                <th
+                  colSpan={1}
+                  onClick={[Function]}
+                  role="columnheader"
+                  style={
+                    Object {
+                      "cursor": "pointer",
+                    }
+                  }
+                  title="Toggle SortBy"
+                >
+                  Task Name
+                  <span
+                    className="float-right"
+                  >
+                    <img
+                      alt="sorting"
+                      src=""
+                    />
+                  </span>
+                </th>
+                <th
+                  colSpan={1}
+                  onClick={[Function]}
+                  role="columnheader"
+                  style={
+                    Object {
+                      "cursor": "pointer",
+                    }
+                  }
+                  title="Toggle SortBy"
+                >
+                  Priority
+                  <span
+                    className="float-right"
+                  >
+                    <img
+                      alt="sorting"
+                      src=""
+                    />
+                  </span>
+                </th>
+                <th
+                  colSpan={1}
+                  onClick={[Function]}
+                  role="columnheader"
+                  style={
+                    Object {
+                      "cursor": "pointer",
+                    }
+                  }
+                  title="Toggle SortBy"
+                >
+                  Status
+                  <span
+                    className="float-right"
+                  >
+                    <img
+                      alt="sorting"
+                      src=""
+                    />
+                  </span>
+                </th>
+                <th
+                  colSpan={1}
+                  onClick={[Function]}
+                  role="columnheader"
+                  style={
+                    Object {
+                      "cursor": "pointer",
+                    }
+                  }
+                  title="Toggle SortBy"
+                >
+                  Actions
+                  <span
+                    className="float-right"
+                  >
+                    <img
+                      alt="sorting"
+                      src=""
+                    />
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  className="text-left"
+                  colSpan="10000"
+                >
+                  -- No recrods to show --
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

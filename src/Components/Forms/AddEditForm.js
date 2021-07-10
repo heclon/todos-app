@@ -45,12 +45,14 @@ class AddEditForm extends React.Component {
         const taskName = this.state.taskName;
         const priorityValue = this.state.priorityValue;
         const priority = this.getPriority(priorityValue);
+        const status = "Pending"
 
         const taskTodo = {
           id: id,
           taskName: taskName,
           priority: priority,
           priorityValue: priorityValue,
+          status: status
         };
         this.props.addItemToState(taskTodo);
         this.props.toggle();
@@ -69,12 +71,14 @@ class AddEditForm extends React.Component {
         const taskName = this.state.taskName;
         const priorityValue = this.state.priorityValue;
         const priority = this.getPriority(priorityValue);
+        const status = this.state.status;
 
         const taskTodo = {
           id: id,
           taskName: taskName,
           priority: priority,
           priorityValue: priorityValue,
+          status: status
         };
         this.props.updateState(taskTodo);
         this.props.toggle();

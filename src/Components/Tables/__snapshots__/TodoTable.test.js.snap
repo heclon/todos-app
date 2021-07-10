@@ -5,7 +5,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
   className="table-responsive"
 >
   <table
-    className="table table-dark table-hover"
+    className="table table-bordered table-hover"
   >
     <thead>
       <tr>
@@ -63,7 +63,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
             <div>
               <button
                 aria-label={null}
-                className="btn btn-secondary"
+                className="btn btn-success"
                 onClick={[Function]}
                 style={
                   Object {
@@ -73,7 +73,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 }
                 type="button"
               >
-                Edit To-do
+                Edit
               </button>
             </div>
              
@@ -84,7 +84,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 onClick={[Function]}
                 type="button"
               >
-                Delete To-do
+                Delete
               </button>
             </div>
           </div>
@@ -113,7 +113,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
             <div>
               <button
                 aria-label={null}
-                className="btn btn-secondary"
+                className="btn btn-success"
                 onClick={[Function]}
                 style={
                   Object {
@@ -123,7 +123,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 }
                 type="button"
               >
-                Edit To-do
+                Edit
               </button>
             </div>
              
@@ -134,7 +134,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 onClick={[Function]}
                 type="button"
               >
-                Delete To-do
+                Delete
               </button>
             </div>
           </div>
@@ -163,7 +163,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
             <div>
               <button
                 aria-label={null}
-                className="btn btn-secondary"
+                className="btn btn-success"
                 onClick={[Function]}
                 style={
                   Object {
@@ -173,7 +173,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 }
                 type="button"
               >
-                Edit To-do
+                Edit
               </button>
             </div>
              
@@ -184,7 +184,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 onClick={[Function]}
                 type="button"
               >
-                Delete To-do
+                Delete
               </button>
             </div>
           </div>
@@ -213,7 +213,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
             <div>
               <button
                 aria-label={null}
-                className="btn btn-secondary"
+                className="btn btn-success"
                 onClick={[Function]}
                 style={
                   Object {
@@ -223,7 +223,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 }
                 type="button"
               >
-                Edit To-do
+                Edit
               </button>
             </div>
              
@@ -234,7 +234,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 onClick={[Function]}
                 type="button"
               >
-                Delete To-do
+                Delete
               </button>
             </div>
           </div>
@@ -263,7 +263,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
             <div>
               <button
                 aria-label={null}
-                className="btn btn-secondary"
+                className="btn btn-success"
                 onClick={[Function]}
                 style={
                   Object {
@@ -273,7 +273,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 }
                 type="button"
               >
-                Edit To-do
+                Edit
               </button>
             </div>
              
@@ -284,7 +284,7 @@ exports[`TodoTable tests snapshot test render correctly TodoTable component 1`] 
                 onClick={[Function]}
                 type="button"
               >
-                Delete To-do
+                Delete
               </button>
             </div>
           </div>
