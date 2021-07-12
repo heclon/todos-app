@@ -12,6 +12,13 @@ describe("App tests", () => {
   let appComponent;
   let todoTableComponent;
 
+  const addItemToState = jest.fn((item) => {
+    appComponent.setState((prevState) => ({
+      items: [...prevState.items, item],
+    }));
+    updateCounters();
+  });
+
   const countByPriority = jest.fn(() => {
     return [1, 3, 1];
   });
@@ -58,6 +65,7 @@ describe("App tests", () => {
         loading={false}
       />
     );
+    updateCounters();
   });
 
   describe("App rendering tests", () => {
@@ -105,7 +113,6 @@ describe("App tests", () => {
       appComponent.setState({
         items: mockedItems,
       });
-
       updateCounters();
 
       const table = todoTableComponent.find("table");
@@ -130,6 +137,45 @@ describe("App tests", () => {
   });
 
   describe("Add new task todo test", () => {
-    it("Save button in the Add new task to-do form should add to-do on the table correctly", () => {});
+    it("Save button in the Add new task to-do form should add to-do on the table correctly", () => {
+      // Set initial data in TodosTable with 5 items
+      appComponent.state = {
+        items: mockedItems,
+        highPriority: 1,
+        mediumPriority: 3,
+        lowPriority: 1,
+      };
+      updateCounters();
+
+      // Simulate a change in the item for the to-do with id="zing", now its "zang" and low priority
+      const newItem = {
+        id: "new",
+        taskName: "New item added",
+        priority: "3-Low",
+        priorityValue: 3,
+        status: "Pending",
+        statusValue: 1,
+      };
+
+      addItemToState(newItem);
+
+      // and check for the new item on the table
+      // {
+      //   id: "new",
+      //   taskName: "New item added",
+      //   priority: "3-Low",
+      //   priorityValue: 3,
+      //   status: "Pending",
+      //   statusValue: 1,
+      // },
+
+      const tableAfterAdd = appComponent.find("table");
+      const body = tableAfterAdd.find("tbody");
+      const tds = body.find("td");
+
+      expect(tds.at(0).text()).toBe("new");
+      expect(tds.at(1).text()).toBe("New item added");
+      expect(tds.at(2).text()).toBe("3-Low");
+    });
   });
 });
