@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --coverage --updateSnapshot",
+    "test": "yarn prettier && jest --coverage --updateSnapshot",
     "test:debug": "node --inspect $(npm bin)/jest --watch --no-cache --runInBand",
     "prettier": "prettier --write .",
     "eject": "react-scripts eject"
