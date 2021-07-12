@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Toast,
-  ToastBody,
-  ToastHeader,
-} from "reactstrap";
+import { Container, Row, Col, Toast, ToastBody, ToastHeader } from "reactstrap";
 import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import TodosTable from "./Components/Tables/TodosTable";
 import Linkedin from "./Components/Links/Linkedin";
-import listHeaders from "./Components/Tables/listHeaders"
+import listHeaders from "./Components/Tables/listHeaders";
 
 function countByPriority(items) {
   let counterHighPriority = 0;
@@ -113,7 +106,6 @@ class App extends Component {
         </Row> */}
 
         <Row style={{ marginBottom: "1%" }}>
-
           <Col>
             <div className="p-3 bg-danger">
               <Toast>
@@ -138,7 +130,6 @@ class App extends Component {
               </Toast>
             </div>
           </Col>
-          
         </Row>
 
         <Row>

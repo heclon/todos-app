@@ -53,9 +53,16 @@ const TodosTable = ({
         <thead>
           {headerGroups.map((headerGroup) => (
             <>
-              <tr key={"header"} className="theader" {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column,i) => (
-                  <th  key={i} {...column.getHeaderProps(column.getSortByToggleProps())}>
+              <tr
+                key={"header"}
+                className="theader"
+                {...headerGroup.getHeaderGroupProps()}
+              >
+                {headerGroup.headers.map((column, i) => (
+                  <th
+                    key={i}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
                     {column.render("Header")}
                     <span className="float-right">
                       {!column.notShowSortingDisplay ? (
@@ -104,11 +111,10 @@ const TodosTable = ({
                   return (
                     <tr key={row.id} {...row.getRowProps()}>
                       {row.cells.map((cell) => {
-
                         const header = cell.column.Header;
                         if (header === "Actions") {
                           return (
-                            <td 
+                            <td
                               {...cell.getCellProps({
                                 className: cell.column.className,
                               })}

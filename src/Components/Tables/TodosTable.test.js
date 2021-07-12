@@ -9,29 +9,59 @@ import mockedItems from "./mockedItems";
 import listHeaders from "./listHeaders";
 
 describe("TodosTable tests", () => {
+  let appComponent;
   let todoTableComponent;
+
+  const updateState = jest.fn((item) => {
+    const itemIndex = appComponent.state.items.findIndex(
+      (data) => data.id === item.id
+    );
+    const newArray = [
+      ...appComponent.state.items.slice(0, itemIndex),
+      item,
+      ...appComponent.state.items.slice(itemIndex + 1),
+    ];
+    appComponent.setState({
+      items: newArray,
+    });
+    todoTableComponent.data = newArray;
+  });
+
+  const deleteItemFromState = jest.fn((id) => {
+    const items = todoTableComponent.data;
+    console.log(items.length);
+    const updatedItems = items.filter((item) => item.id !== id);
+    appComponent.setState({
+      items: updatedItems,
+    });
+    todoTableComponent.data = updatedItems;
+  });
+
   beforeEach(() => {
+    appComponent = mount(<App />);
+
     todoTableComponent = mount(
       <TodosTable
         columns={listHeaders}
         data={mockedItems}
-        updateState={App.updateState}
-        deleteItemFromState={App.deleteItemFromState}
-        loading={false}  
-    />
+        updateState={updateState}
+        deleteItemFromState={deleteItemFromState}
+        loading={false}
+      />
     );
+    todoTableComponent.data = mockedItems;
   });
 
   it("snapshot test render correctly TodosTable component", () => {
     const todoTable = renderer
       .create(
         <TodosTable
-        columns={listHeaders}
-        data={mockedItems}
-        updateState={App.updateState}
-        deleteItemFromState={App.deleteItemFromState}
-        loading={false}  
-      />
+          columns={listHeaders}
+          data={mockedItems}
+          updateState={updateState}
+          deleteItemFromState={deleteItemFromState}
+          loading={false}
+        />
       )
       .toJSON();
     expect(todoTable).toMatchSnapshot();
@@ -46,7 +76,7 @@ describe("TodosTable tests", () => {
     const headerRow = table.find("thead");
     expect(headerRow).toHaveLength(1);
 
-    // there should be 4 headers
+    // there should be 5 headers
     const headers = headerRow.find("th");
     expect(headers).toHaveLength(5);
 
@@ -59,7 +89,7 @@ describe("TodosTable tests", () => {
     const headerPriority = headers.at(2);
     expect(headerPriority.text()).toBe("Priority");
 
-    // there should be 1 table body with 6 rows for mocked items
+    // there should be 1 table body with 5 rows for mocked items
     const body = table.find("tbody");
     expect(body).toHaveLength(1);
 
@@ -118,7 +148,7 @@ describe("TodosTable tests", () => {
       const headers = thead.find("th");
       const headerTaskName = headers.at(1);
 
-      //To get DESC order we need 2 clicks
+      // To get DESC order we need 2 clicks
       headerTaskName.simulate("click");
       headerTaskName.simulate("click");
 
@@ -194,13 +224,67 @@ describe("TodosTable tests", () => {
     });
   });
 
-  describe("Test TodosTable button actions", () => {
+  describe("Test button actions in TodosTable", () => {
+    it("Delete button removes item in TodosTable", () => {
+      // Set initial data in TodosTable with 5 items
+      appComponent.state = {
+        items: mockedItems,
+        highPriority: 1,
+        mediumPriority: 3,
+        lowPriority: 1,
+      };
 
-    it("Edit button saves the item new state on todos table", () => {
+      // Simulate click on Delete button for the first to-do with id="hook"
+      deleteItemFromState("hook");
+      const tableAfterDelete = appComponent.find("table");
+      const bodyAfterDelete = tableAfterDelete.find("tbody");
+      const rowsAfterDelete = bodyAfterDelete.find("tr");
 
+      // there should be 4 rows now
+      expect(rowsAfterDelete).toHaveLength(4);
     });
-    it("Delete button removes item from todos table", () => {
 
+    it("Edit button saves the item new state on TodosTable", () => {
+      // Set initial data in TodosTable with 5 items
+      appComponent.state = {
+        items: mockedItems,
+        highPriority: 1,
+        mediumPriority: 3,
+        lowPriority: 1,
+      };
+
+      // Simulate a change in the item for the to-do with id="zing", now its "zang" and low priority
+      const editedItem = {
+        id: "zing",
+        taskName: "Zang-Zang changed",
+        priority: "3-Low",
+        priorityValue: 3,
+        status: "Done",
+      };
+
+      updateState(editedItem);
+      const tableAfterEdit = appComponent.find("table");
+      const bodyAfterEdit = tableAfterEdit.find("tbody");
+      const rowsAfterEdit = bodyAfterEdit.find("tr");
+
+      // there should still be 5 rows
+      expect(rowsAfterEdit).toHaveLength(5);
+
+      // and check for sorted items on the table
+      // Now the first item should be:
+      // {
+      //   id: "zing",
+      //   taskName: "Zang-Zang changed",
+      //   priority: "3-Low",
+      //   priorityValue: 3,
+      // },
+
+      const body = tableAfterEdit.find("tbody");
+      const tds = body.find("td");
+
+      expect(tds.at(20).text()).toBe("zing");
+      expect(tds.at(21).text()).toBe("Zang-Zang changed");
+      expect(tds.at(22).text()).toBe("3-Low");
     });
   });
 });

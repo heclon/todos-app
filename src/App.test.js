@@ -6,26 +6,58 @@ import ModalAddEdit from "./Components/Modals/ModalAddEdit";
 import renderer from "react-test-renderer";
 import mockedItems from "./Components/Tables/mockedItems";
 import listHeaders from "./Components/Tables/listHeaders";
-import {
-  ToastBody,
-  ToastHeader,
-} from "reactstrap";
+import { ToastBody, ToastHeader } from "reactstrap";
 
 describe("App tests", () => {
   let appComponent;
   let todoTableComponent;
+
+  const countByPriority = jest.fn(() => {
+    return [1, 3, 1];
+  });
+
+  const updateCounters = jest.fn(() => {
+    const [counterHighPriority, counterMediumPriority, counterLowPriority] =
+      countByPriority();
+    appComponent.setState({
+      highPriority: counterHighPriority,
+      mediumPriority: counterMediumPriority,
+      lowPriority: counterLowPriority,
+    });
+  });
+
+  const updateState = jest.fn((item) => {
+    const itemIndex = this.state.items.findIndex((data) => data.id === item.id);
+    const newArray = [
+      ...appComponent.state.items.slice(0, itemIndex),
+      item,
+      ...appComponent.state.items.slice(itemIndex + 1),
+    ];
+    appComponent.setState({ items: newArray });
+    todoTableComponent.items = newArray;
+    updateCounters();
+  });
+
+  const deleteItemFromState = jest.fn((id) => {
+    const updatedItems = appComponent.state.items.filter(
+      (item) => item.id !== id
+    );
+    appComponent.setState({ items: updatedItems });
+    todoTableComponent.items = updatedItems;
+    updateCounters();
+  });
+
   beforeEach(() => {
     appComponent = mount(<App />);
     todoTableComponent = mount(
       <TodosTable
         columns={listHeaders}
         data={mockedItems}
-        updateState={App.updateState}
-        deleteItemFromState={App.deleteItemFromState}
-        loading={false}  
+        updateState={updateState}
+        deleteItemFromState={deleteItemFromState}
+        loading={false}
       />
     );
-
   });
 
   describe("App rendering tests", () => {
@@ -45,8 +77,7 @@ describe("App tests", () => {
     });
 
     it("renders the priority counters correctly", () => {
-      
-      const toastHeaders = appComponent.find(ToastHeader)
+      const toastHeaders = appComponent.find(ToastHeader);
       expect(toastHeaders).toHaveLength(3);
 
       // high priority counter header
@@ -69,33 +100,20 @@ describe("App tests", () => {
   });
 
   describe("Priority counters tests", () => {
-
     it("App displays values on priority counters correctly", () => {
       // set state values
       appComponent.setState({
         items: mockedItems,
       });
-      const countByPriority = jest.fn(() => {
-        return [1,3,1];
-      });
-  
-      const updateCounters = jest.fn(() => {
-        const [counterHighPriority, counterMediumPriority, counterLowPriority] =
-        countByPriority();
-        appComponent.setState({
-            highPriority: counterHighPriority,
-            mediumPriority: counterMediumPriority,
-            lowPriority: counterLowPriority,
-        })
-      });
+
       updateCounters();
-      
+
       const table = todoTableComponent.find("table");
       const body = table.find("tbody");
       const rows = body.find("tr");
       expect(rows).toHaveLength(5);
 
-      const toastHeaders = appComponent.find(ToastHeader)
+      const toastHeaders = appComponent.find(ToastHeader);
       expect(toastHeaders).toHaveLength(3);
       expect(toastHeaders.at(0).text()).toBe("1-High Priority");
       expect(toastHeaders.at(1).text()).toBe("2-Medium Priority");
@@ -104,11 +122,14 @@ describe("App tests", () => {
       // check for counters to have values 1,3,1
       const toastValues = appComponent.find(ToastBody);
       expect(toastValues).toHaveLength(3);
-     
+
       expect(toastValues.at(0).text()).toBe("1");
       expect(toastValues.at(1).text()).toBe("3");
       expect(toastValues.at(2).text()).toBe("1");
     });
+  });
 
+  describe("Add new task todo test", () => {
+    it("Save button in the Add new task to-do form should add to-do on the table correctly", () => {});
   });
 });
