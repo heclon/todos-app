@@ -117,7 +117,7 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-danger">
               <Toast>
-                <ToastHeader>High Priority</ToastHeader>
+                <ToastHeader>1-High Priority</ToastHeader>
                 <ToastBody>{counterHighPriority}</ToastBody>
               </Toast>
             </div>
@@ -125,7 +125,7 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-warning">
               <Toast>
-                <ToastHeader>Medium Priority</ToastHeader>
+                <ToastHeader>2-Medium Priority</ToastHeader>
                 <ToastBody>{counterMediumPriority}</ToastBody>
               </Toast>
             </div>
@@ -133,7 +133,7 @@ class App extends Component {
           <Col>
             <div className="p-3 bg-primary">
               <Toast>
-                <ToastHeader>Low Priority</ToastHeader>
+                <ToastHeader>3-Low Priority</ToastHeader>
                 <ToastBody>{counterLowPriority}</ToastBody>
               </Toast>
             </div>

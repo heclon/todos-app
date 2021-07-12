@@ -2,7 +2,7 @@ const mockedItems = [
   {
     id: "hook",
     taskName: "Demo React Hooks",
-    priority: "High",
+    priority: "1-High",
     priorityValue: "1",
     status: "In progress",
     statusValue: "2",
@@ -10,7 +10,7 @@ const mockedItems = [
   {
     id: "awsx",
     taskName: "AWS Architecture exams",
-    priority: "Medium",
+    priority: "2-Medium",
     priorityValue: "2",
     status: "Pending",
     statusValue: "1",
@@ -18,7 +18,7 @@ const mockedItems = [
   {
     id: "awsd",
     taskName: "AWS Development exam",
-    priority: "Medium",
+    priority: "2-Medium",
     priorityValue: "2",
     status: "In progress",
     statusValue: "2",
@@ -26,7 +26,7 @@ const mockedItems = [
   {
     id: "pyad",
     taskName: "Python advanced learning",
-    priority: "Low",
+    priority: "3-Low",
     priorityValue: "3",
     status: "Pending",
     statusValue: "1",
@@ -34,7 +34,7 @@ const mockedItems = [
   {
     id: "zing",
     taskName: "Zing-Zing last",
-    priority: "Medium",
+    priority: "2-Medium",
     priorityValue: "2",
     status: "Done",
     statusValue: "3",

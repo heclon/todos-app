@@ -140,7 +140,7 @@ Array [
             className="t-cell-3 text-left"
             role="cell"
           >
-            High
+            1-High
           </td>
           <td
             className="t-cell-4 text-center"
@@ -227,7 +227,7 @@ Array [
             className="t-cell-3 text-left"
             role="cell"
           >
-            Medium
+            2-Medium
           </td>
           <td
             className="t-cell-4 text-center"
@@ -314,7 +314,7 @@ Array [
             className="t-cell-3 text-left"
             role="cell"
           >
-            Medium
+            2-Medium
           </td>
           <td
             className="t-cell-4 text-center"
@@ -401,7 +401,7 @@ Array [
             className="t-cell-3 text-left"
             role="cell"
           >
-            Low
+            3-Low
           </td>
           <td
             className="t-cell-4 text-center"
@@ -488,7 +488,7 @@ Array [
             className="t-cell-3 text-left"
             role="cell"
           >
-            Medium
+            2-Medium
           </td>
           <td
             className="t-cell-4 text-center"

@@ -78,7 +78,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
             <strong
               className="mr-auto"
             >
-              High Priority
+              1-High Priority
             </strong>
           </div>
           <div
@@ -105,7 +105,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
             <strong
               className="mr-auto"
             >
-              Medium Priority
+              2-Medium Priority
             </strong>
           </div>
           <div
@@ -132,7 +132,7 @@ exports[`App tests App rendering tests snapshot test render correctly App compon
             <strong
               className="mr-auto"
             >
-              Low Priority
+              3-Low Priority
             </strong>
           </div>
           <div

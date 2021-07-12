@@ -20,13 +20,13 @@ class AddEditForm extends React.Component {
 
   getPriority = (priorityValue) => {
     if (priorityValue === "1") {
-      return "High";
+      return "1-High";
     }
     if (priorityValue === "2") {
-      return "Medium";
+      return "2-Medium";
     }
     if (priorityValue === "3") {
-      return "Low";
+      return "3-Low";
     }
   };
 
@@ -155,9 +155,9 @@ class AddEditForm extends React.Component {
             onChange={this.onChange}
           >
             <option value={"0"}></option>
-            <option value={"1"}>High</option>
-            <option value={"2"}>Medium</option>
-            <option value={"3"}>Low</option>
+            <option value={"1"}>1-High</option>
+            <option value={"2"}>2-Medium</option>
+            <option value={"3"}>3-Low</option>
           </Input>
 
           <Input

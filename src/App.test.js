@@ -50,13 +50,13 @@ describe("App tests", () => {
       expect(toastHeaders).toHaveLength(3);
 
       // high priority counter header
-      expect(toastHeaders.at(0).text()).toBe("High Priority");
+      expect(toastHeaders.at(0).text()).toBe("1-High Priority");
 
       // medium priority counter header
-      expect(toastHeaders.at(1).text()).toBe("Medium Priority");
+      expect(toastHeaders.at(1).text()).toBe("2-Medium Priority");
 
       // low priority counter header
-      expect(toastHeaders.at(2).text()).toBe("Low Priority");
+      expect(toastHeaders.at(2).text()).toBe("3-Low Priority");
 
       // and counters should be zero initially
       const toastValues = appComponent.find(".toast-body");
@@ -97,9 +97,9 @@ describe("App tests", () => {
 
       const toastHeaders = appComponent.find(ToastHeader)
       expect(toastHeaders).toHaveLength(3);
-      expect(toastHeaders.at(0).text()).toBe("High Priority");
-      expect(toastHeaders.at(1).text()).toBe("Medium Priority");
-      expect(toastHeaders.at(2).text()).toBe("Low Priority");
+      expect(toastHeaders.at(0).text()).toBe("1-High Priority");
+      expect(toastHeaders.at(1).text()).toBe("2-Medium Priority");
+      expect(toastHeaders.at(2).text()).toBe("3-Low Priority");
 
       // check for counters to have values 1,3,1
       const toastValues = appComponent.find(ToastBody);
